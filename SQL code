@@ -24,26 +24,3 @@ chw_id varchar(10) NOT NULL,
 FOREIGN KEY (chw_id) REFERENCES CommunityHealthWorkers(chw_id)
 );
 
-CREATE TABLE Trainers (
-trainers_id varchar(20) PRIMARY KEY,
-name_n varchar(20) NOT NULL,
-contacts int NOT NULL
-);
-
-CREATE TABLE Training_records (
-record_id varchar (10) PRIMARY KEY,
-description varchar (50) NOT NULL,
-trainers_id varchar (23) NOT NULL,
-chw_id varchar(10) NOT NULL,
-FOREIGN KEY (trainers_id) REFERENCES Trainers(trainers_id),
-FOREIGN KEY (chw_id) REFERENCES CommunityHealthWorkers(chw_id)
-);
-
-CREATE TABLE Patient (
-address varchar (20) NOT NULL,
-contacts int NOT NULL,
-names_n varchar(20) NOT NULL,
-patient_id varchar (10) PRIMARY KEY,
-date_of_birth date NOT NULL,
-emergency_contact int NOT NULL
-);
