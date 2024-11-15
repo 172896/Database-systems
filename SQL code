@@ -10,11 +10,30 @@ supervisor_id varchar(10) NOT NULL,
 FOREIGN KEY (supervisor_id) REFERENCES Supervisor(supervisor_id)
 );
 
+INSERT INTO CommunityHealthWorkers(chw_id, names_n, email, contacts, date_of_birth, status, start_date, supervisor_id)
+VALUES
+('191002', 'John Heckels', 'johnhekels@gmail.com', '0728299011', '22-03-1991', 'single', '12-04-2024', '199203'),
+('268100', 'Alex Mwaniki', 'alexmwaniki@gmail.com', '0740100002', '10-01-1989', 'married', '03-02-2024', '200234'),
+('293002', 'Lilian Wangari', 'lilianwangari@gmail.com', '0790123890', '30-09-1984', 'married', '26-03-2024', '203984'),
+('236182', 'Mary Green', 'marygreen@gmail.com', '0719299021', '20-11-1994', 'single', '22-02-2024', '120289'),
+('140674', 'Kelvin Henry', 'kelvinhenry@gmail.com', '0710293374', '11-12-1981', 'married', '19-01-2024', '190239'),
+('250112', 'Monica Geller', 'monicageller@gmail.com', '0712000286', '17-06-1997', 'single', '20-01-2024', '160846');
+
 CREATE TABLE Supervisor (
 supervisor_id varchar(10) PRIMARY KEY,
 contacts int NOT NULL,
 names_n varchar(20) NOT NULL
 );
+
+INSERT INTO Supervisor(supervisor_id, contacts, names_n)
+VALUES
+('199203', '0716456873', 'Jude Aswold'),
+('160846', '0734874900', 'Fiona Lee'),
+('200234', '0718293450', 'Henry Harty'),
+('190239', '0728390010', 'Kelly Woody'),
+('120289', '0700289838', 'Arnold Kim'),
+('203984', '0711289992', 'Regina Falengy');
+
 CREATE TABLE Trainers (
 trainers_id varchar(20) PRIMARY KEY,
 name_n varchar(20) NOT NULL,
