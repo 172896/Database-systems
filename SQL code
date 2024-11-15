@@ -77,5 +77,30 @@ description varchar(50) NOT NULL,
 FOREIGN KEY (patient_id) REFERENCES  Patient(patient_id)
 );
 
+INSERT INTO Health_conditions(condition_id, condition_name, patient_id, description)
+VALUES
+('cd22', 'Asthma', '128200', 'should not do intense work'),
+('cd10', 'Diabetes', '120033', 'should avoid excess sugar'),
+('cd17', 'Allergies', '102940', 'should not take any milk products'),
+('cd20', 'High blood pressure', '111022', 'should avoid smoking');
 
+SELECT CommunityHealthWorkers.names_n, Training_records.description, Training_records.record_id
+FROM CommunityHealthWorkers
+JOIN Training_records ON CommunityHealthWorkers.chw_id = Training_records.chw_id;
+
+SELECT Patient.names_p, Health_conditions.condition_name
+FROM Patient
+JOIN Health_conditions ON Patient.patient_id = Health_conditions.patient_id
+WHERE Patient.patient_id = '128200';
+
+SELECT Patient.names_p, Patient_follow_up.followup_date
+FROM Patient_follow_up
+JOIN Patient ON Patient_follow_up.patient_id = Patient.patient_id
+WHERE Patient_follow_up.chw_id = 191002;
+
+SELECT Patient.names_p, Health_conditions.condition_name
+FROM Patient_follow_up
+JOIN Patient ON Patient_follow_up.patient_id = Patient.patient_id
+JOIN Health_conditions ON Patient.patient_id = Health_conditions.patient_id
+WHERE Patient_follow_up.chw_id = 140674;
 
