@@ -49,6 +49,15 @@ FOREIGN KEY (trainers_id) REFERENCES Trainers(trainers_id),
 FOREIGN KEY (chw_id) REFERENCES CommunityHealthWorkers(chw_id)
 );
 
+
+INSERT INTO Training_records(record_id, description, trainers_id, chw_id)
+VALUES
+('re12', 'fully qualified', '101012', '236182'),
+('re05', 'more training needed', '211000', '236182'),
+('re28', 'fully qualified', '146650', '236182'),
+('re21', 'fully qualified', '155673', '236182');
+
+
 CREATE TABLE Patient (
 address varchar (20) NOT NULL,
 contacts int NOT NULL,
