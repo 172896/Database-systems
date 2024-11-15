@@ -92,6 +92,13 @@ FOREIGN KEY (chw_id) REFERENCES CommunityHealthWorkers(chw_id),
 FOREIGN KEY (patient_id) REFERENCES  Patient(patient_id)
 );
 
+INSERT INTO Patient_follow_up(followup_id, followup_date, next_date, patient_id, chw_id, description)
+VALUES
+('er009', '20-05-2024','14-09-2024', '111022', '191002', 'sick'),
+('sd012', '19-04-2024','26-07-2024', '120033', '191002', 'sick'),
+('yl293', '13-05-2024','16-10-2024', '102940', '191002', 'sick'),
+('tk592', '03-03-2024','28-08-2024', '128200', '191002', 'sick');
+
 CREATE TABLE Health_conditions (
 condition_id varchar(10) PRIMARY KEY,
 condition_name varchar(20) NOT NULL,
@@ -127,3 +134,21 @@ JOIN Patient ON Patient_follow_up.patient_id = Patient.patient_id
 JOIN Health_conditions ON Patient.patient_id = Health_conditions.patient_id
 WHERE Patient_follow_up.chw_id = 140674;
 
+SELECT Patient.names_p, CommunityHealthWorkers.names_n AS chw_name
+FROM Patient_follow_up
+JOIN Patient ON Patient_follow_up.patient_id = Patient.patient_id
+JOIN CommunityHealthWorkers ON Patient_follow_up.chw_id = CommunityHealthWorkers.chw_id;
+
+SELECT Assignment_t.assignment_id, Assignment_t.description
+FROM Assignment_t
+WHERE Assignment_t.chw_id = 236182;
+
+SELECT Patient.names_p, Patient_follow_up.followup_date
+FROM Patient_follow_up
+JOIN Patient ON Patient_follow_up.patient_id = Patient.patient_id
+WHERE Patient_follow_up.followup_date BETWEEN '2024-05-01' AND '2024-06-01';
+
+SELECT Patient.names_p, Health_conditions.condition_name
+FROM Health_conditions
+JOIN Patient ON Health_conditions.patient_id = Patient.patient_id
+WHERE Health_conditions.condition_name = 'Asthma';
