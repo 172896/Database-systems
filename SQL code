@@ -39,6 +39,13 @@ trainers_id varchar(20) PRIMARY KEY,
 name_n varchar(20) NOT NULL,
 contacts int NOT NULL
 );
+INSERT INTO Trainers(trainers_id, name_t, contacts)
+VALUES
+('101012', 'Diana Norman', '0700121190'),
+('211000', 'Angelo Nickle', '0788811011'),
+('146650', 'Gerald Steve', '075536490'),
+('155673', ' Pam Donley', '0787566445');
+
 
 CREATE TABLE Training_records (
 record_id varchar (10) PRIMARY KEY,
