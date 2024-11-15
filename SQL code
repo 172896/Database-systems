@@ -74,6 +74,13 @@ date_of_birth date NOT NULL,
 emergency_contact int NOT NULL
 );
 
+INSERT INTO Patient(address, contacts, names_p, patient_id, date_of_birth, emergency_contact)
+VALUES
+('Embu/Nairobi Rd, Kerugoya, 51-10303', '0755684099', 'Julia Bigs', '128200', '27-03-1974', '073338990'),
+('Outer Ring Rd', '0793478092', 'Eunice Kerugo', '120033', '13-12-1979', '0799887230'),
+('Sarit Centre, Parklands Rd', '0722001029', 'Patrick Star', '111022', '18-01-1968', '0711922091'),
+('00515 Buru Buru', '0716555739', 'Jacky Thorn', '102940', '10-12-1964', '0788229912');
+
 CREATE TABLE Patient_follow_up (
 followup_id varchar(10) PRIMARY KEY,
 followup_date date NOT NULL,
