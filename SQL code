@@ -152,3 +152,21 @@ SELECT Patient.names_p, Health_conditions.condition_name
 FROM Health_conditions
 JOIN Patient ON Health_conditions.patient_id = Patient.patient_id
 WHERE Health_conditions.condition_name = 'Asthma';
+
+SELECT chw_id, names_n, date_of_birth
+FROM CommunityHealthWorkers
+WHERE status = 'married';
+
+SELECT chw_id, names_n, start_date
+FROM CommunityHealthWorkers
+WHERE supervisor_id = 200234;
+
+SELECT chw_id, names_n, description
+FROM CommunityHealthWorkers
+JOIN Assignment_t ON CommunityHealthWorkers.chw_id = Assignment_t.chw_id
+WHERE assignment_date = '21-06-2024';
+
+SELECT chw_id, names_n, Supervisor.names_n AS supervisor_name
+FROM CommunityHealthWorkers
+JOIN Supervisor ON CommunityHealthWorkers.supervisor_id = Supervisor.supervisor_id
+WHERE CommunityHealthWorkers.supervisor_id = 199203;
